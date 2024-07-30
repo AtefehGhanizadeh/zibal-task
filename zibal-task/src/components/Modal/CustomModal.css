@@ -1,0 +1,23 @@
+.ant-modal .ant-modal-content {
+  padding: 0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.ant-modal .ant-modal-header {
+  padding: 20px;
+  border-bottom: 2px solid #f8f8f8;
+}
+
+.ant-tabs-card.ant-tabs-top > .ant-tabs-nav .ant-tabs-tab-active {
+  border-bottom-color: #f0f0f0;
+  background-color: blue;
+}
+
+.ant-tabs-top > .ant-tabs-nav::before {
+  border-bottom: none;
+}
+
+.ant-tabs .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn{
+    color: white;
+}
