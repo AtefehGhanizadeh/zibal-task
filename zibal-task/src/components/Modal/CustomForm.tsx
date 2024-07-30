@@ -1,5 +1,6 @@
-import { Button, Divider, Form, Input, message, Select } from "antd";
+import { Button, Divider, Form, Input, InputNumber, InputNumberProps, message, Select } from "antd";
 import TextArea from "antd/es/input/TextArea";
+import { useState } from "react";
 
 interface FieldType {
   destination: string;
@@ -14,6 +15,7 @@ const CustomForm = ({
   handleCancle: () => void;
   handleOk: () => void;
 }) => {
+  const [value, setValue] = useState(0);
   const [messageApi, contextHolder] = message.useMessage();
   const [form] = Form.useForm();
 
@@ -23,6 +25,7 @@ const CustomForm = ({
       content: "ثبت درخواست تسویه با موفقیت انجام شد.",
     });
   };
+
 
   return (
     <Form
@@ -60,10 +63,16 @@ const CustomForm = ({
             },
           ]}
         >
-          <Input style={{flexDirection:"row-reverse"}} prefix={<span style={{color:"#e2e2e2"}}>ریال</span>} />
+          <InputNumber<number>
+            controls={false}
+           formatter={(value) => ` ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+           parser={(value) => value?.replace(/\$\s?|(,*)/g, '') as unknown as number}
+            style={{ flexDirection: "row-reverse",width:"100%" }}
+            prefix={<span style={{ color: "#e2e2e2" }}>ریال</span>}
+          />
         </Form.Item>
         <Form.Item label="توضیحات(بابت)">
-          <TextArea />
+          <TextArea style={{minHeight:"130px"}} />
         </Form.Item>
       </div>
       <Divider />

@@ -1,6 +1,6 @@
 export interface DataType {
     amount: number | string;
-    trackId: number;
+    trackId: string;
     status: number | string;
     paidAt: string;
     cardNumber: string;
