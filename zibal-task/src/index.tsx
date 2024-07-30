@@ -14,10 +14,7 @@ root.render(
       token: {
         // Seed Token
         colorPrimary: 'blue',
-        borderRadius: 2,
 
-        // Alias Token
-        // colorBgContainer: '#f6ffed',
       },
     }}
   ><App /></ConfigProvider>

@@ -20,14 +20,14 @@ const CustomTable = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch("http://localhost:3000/data");
+      const response = await fetch("http://localhost:8000/data");
 
       if (!response.ok) {
         throw new Error("Something went wrong!");
       }
 
       const responseData: DataType[] = await response.json();
-      responseData.map((item) => {
+      responseData.forEach((item) => {
         if (item.status === 1) {
           item.status = "پرداخت موفق";
         } else {
@@ -60,7 +60,13 @@ const CustomTable = () => {
         <div style={{ display: "flex", gap: "10px" }}>
           {contextHolder}
           {text}
-          <CopyOutlined style={{ color: "blue" }} onClick={copySuccess} />
+          <CopyOutlined
+            style={{ color: "blue" }}
+            onClick={() => {
+              navigator.clipboard.writeText(text.toString());
+              copySuccess();
+            }}
+          />
         </div>
       ),
     },
