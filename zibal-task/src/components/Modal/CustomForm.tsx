@@ -26,12 +26,12 @@ const CustomForm = ({
 
   return (
     <Form
-    form={form}
+      form={form}
       labelCol={{ span: 8 }}
       wrapperCol={{ span: 100 }}
       layout="vertical"
       style={{ maxWidth: 600 }}
-      onFinish={()=>form.resetFields()}
+      onFinish={() => form.resetFields()}
     >
       <div style={{ padding: "20px" }}>
         <Form.Item<FieldType>
@@ -60,7 +60,7 @@ const CustomForm = ({
             },
           ]}
         >
-          <Input />
+          <Input style={{textAlign:"left"}} placeholder="ریال" ></Input>
         </Form.Item>
         <Form.Item label="توضیحات(بابت)">
           <TextArea />
