@@ -3,13 +3,7 @@ import { Button, Input, InputRef, Space, TableColumnType } from "antd";
 import { FilterDropdownProps } from "antd/es/table/interface";
 import { useRef, useState } from "react";
 import Highlighter from "react-highlight-words";
-interface DataType {
-  amount: number | string;
-  trackId: number;
-  status: number | string;
-  paidAt: string;
-  cardNumber: string;
-}
+import { DataType } from "../../interfaces";
 
 type DataIndex = keyof DataType;
 

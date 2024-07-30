@@ -8,16 +8,15 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-     <ConfigProvider
-     direction="rtl"
-    theme={{
-      token: {
-        // Seed Token
-        colorPrimary: 'blue',
-
-      },
-    }}
-  ><App /></ConfigProvider>
-    
+    <ConfigProvider
+      direction="rtl"
+      theme={{
+        token: {
+          colorPrimary: "blue",
+        },
+      }}
+    >
+      <App />
+    </ConfigProvider>
   </React.StrictMode>
 );

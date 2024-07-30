@@ -1,47 +1,16 @@
 import { CopyOutlined } from "@ant-design/icons";
 import { Table, TableProps, message } from "antd";
-import { useEffect, useState } from "react";
 import "./CustomTable.css";
 import useSearchBox from "./useSearchBox";
+import useFetch from "./useFetch";
+import { DataType } from "../../interfaces";
 
-interface DataType {
-  amount: number | string;
-  trackId: number;
-  status: number | string;
-  paidAt: string;
-  cardNumber: string;
-}
 
 const CustomTable = () => {
-  const [data, setData] = useState<DataType[]>([]);
   const [messageApi, contextHolder] = message.useMessage();
   const searchbox = useSearchBox();
   type ColumnsType<T extends object> = TableProps<T>["columns"];
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = await fetch("http://localhost:8000/data");
-
-      if (!response.ok) {
-        throw new Error("Something went wrong!");
-      }
-
-      const responseData: DataType[] = await response.json();
-      responseData.forEach((item) => {
-        if (item.status === 1) {
-          item.status = "پرداخت موفق";
-        } else {
-          item.status = " پرداخت ناموفق";
-        }
-        item.amount = item.amount.toLocaleString();
-      });
-      setData(responseData);
-    };
-
-    fetchData().catch((error) => {
-      throw new Error(error.message);
-    });
-  }, []);
+  const data = useFetch();
 
   const copySuccess = () => {
     messageApi.open({
@@ -125,7 +94,7 @@ const CustomTable = () => {
         pagination={false}
         dataSource={data}
         columns={columns}
-        footer={() => ` تعداد نتایج : ${data.length}`}
+        footer={(currentPageData) => ` تعداد نتایج : ${currentPageData.length}`}
       />
     </div>
   );

@@ -60,7 +60,7 @@ const CustomForm = ({
             },
           ]}
         >
-          <Input style={{textAlign:"left"}} placeholder="ریال" ></Input>
+          <Input style={{flexDirection:"row-reverse"}} prefix={<span style={{color:"#e2e2e2"}}>ریال</span>} />
         </Form.Item>
         <Form.Item label="توضیحات(بابت)">
           <TextArea />

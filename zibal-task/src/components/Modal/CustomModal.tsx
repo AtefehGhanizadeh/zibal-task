@@ -51,6 +51,17 @@ const CustomModal = () => {
         onOk={handleOk}
         onCancel={handleCancel}
         footer={[]}
+        styles={{
+          header: {
+            padding: "20px",
+            borderBottom: "2px solid #f8f8f8",
+          },
+          content: {
+            padding: 0,
+            borderRadius: "10px",
+            overflow: "hidden",
+          }
+        }}
       >
         <div>
           <Flex vertical>
