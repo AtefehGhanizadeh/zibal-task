@@ -1,6 +1,5 @@
-import { Button, Divider, Form, Input, InputNumber, InputNumberProps, message, Select } from "antd";
+import { Button, Divider, Form, InputNumber, message, Select } from "antd";
 import TextArea from "antd/es/input/TextArea";
-import { useState } from "react";
 
 interface FieldType {
   destination: string;
@@ -15,7 +14,6 @@ const CustomForm = ({
   handleCancle: () => void;
   handleOk: () => void;
 }) => {
-  const [value, setValue] = useState(0);
   const [messageApi, contextHolder] = message.useMessage();
   const [form] = Form.useForm();
 

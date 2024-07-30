@@ -2,7 +2,6 @@ import { SearchOutlined } from "@ant-design/icons";
 import { Button, Input, InputRef, Space, TableColumnType } from "antd";
 import { FilterDropdownProps } from "antd/es/table/interface";
 import { useRef, useState } from "react";
-import Highlighter from "react-highlight-words";
 import { DataType } from "../../interfaces";
 
 type DataIndex = keyof DataType;
